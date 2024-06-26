@@ -28,7 +28,8 @@ def create_app(config_class=Config, main_bp=main_bp, greeting_bp=greeting_bp):
             "url": request.url_root
         }
         response = jsonify(error_message)
-        return response
+        status = 404
+        return response, status
 
     @app.route('/test')
     def test_page():

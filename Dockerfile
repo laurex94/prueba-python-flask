@@ -12,6 +12,8 @@ RUN export FLASK_APP=app
 
 RUN export FLASK_ENV=development
 
+RUN export PYTHONPATH=/usr/src/app:$PYTHONPATH
+
 EXPOSE 5000
 
 CMD [ "flask", "run", "--host=0.0.0.0", "--port=5000", "--reload", "--debug"]
