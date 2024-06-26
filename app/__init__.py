@@ -1,4 +1,5 @@
-from flask import Flask
+from flask import Flask, jsonify, redirect, request
+import time
 from config import Config
 from app.extensions import db
 # Blueprints
@@ -19,8 +20,17 @@ def create_app(config_class=Config, main_bp=main_bp, greeting_bp=greeting_bp):
     with app.app_context():
         db.drop_all()
         db.create_all()
+        
+    @app.errorhandler(404)
+    def page_not_found(error):
+        error_message = {
+            "error": "This route does not exist, please click on the link below to go back to the main page",
+            "url": request.url_root
+        }
+        response = jsonify(error_message)
+        return response
 
-    @app.route('/')
+    @app.route('/test')
     def test_page():
         return '<h1>Testing the Flask Application Factory Pattern</h1>'
 
