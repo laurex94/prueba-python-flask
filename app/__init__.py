@@ -1,6 +1,5 @@
-from flask import Flask, jsonify, redirect, request
-import time
-from config import Config
+from flask import Flask, jsonify, request
+from app.config import Config
 from app.extensions import db
 # Blueprints
 from app.main import bp as main_bp

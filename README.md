@@ -51,3 +51,12 @@ A continuación se detallan ejemplos de cómo realizar pruebas en la aplicación
 
 5. **Abrir endpoint de test en navegador:**
     - **URL:** `http://localhost:5000/test`
+
+Para hacer el test de forma automática, se puede ejecutar el siguiente comando:
+   1. **Abrir terminal de la aplicación deentro del contenedor:**
+      - **Comando:** `docker exec -it nombre-container bash`
+   ```bash
+   pytest
+   ```
+
+
